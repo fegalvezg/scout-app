@@ -26,7 +26,7 @@ function MiniBar({score,color}){
 
 function ProductDetail({product,type,axes,onClose}){
   const colorMap = {entry:C.entry,balanced:C.balanced,pro:C.pro};
-  const labelMap = {entry:"EL ENTRADA",balanced:"EL EQUILIBRADO",pro:"REFERENCIA PRO"};
+  const labelMap = {entry:"BUENO, BONITO Y BARATO",balanced:"EL RECOMENDADO",pro:"REFERENCIA PRO"};
   const color = colorMap[type];
   const label = labelMap[type];
   const chartData=axes.map(a=>({axis:a.length>10?a.substring(0,9)+"..":a,score:product.scores[a]}));
@@ -130,8 +130,8 @@ function ProductDetail({product,type,axes,onClose}){
 
 function ProductCard({product,type,axes,onClick}){
   const colorMap = {entry:C.entry,balanced:C.balanced,pro:C.pro};
-  const labelMap = {entry:"EL ENTRADA",balanced:"EL EQUILIBRADO",pro:"REFERENCIA PRO"};
-  const subMap = {entry:"Lo mejor que puedes conseguir barato",balanced:"La compra inteligente",pro:"Si el dinero no importa"};
+  const labelMap = {entry:"BUENO, BONITO Y BARATO",balanced:"EL RECOMENDADO",pro:"REFERENCIA PRO"};
+  const subMap = {entry:"Gasta poco, llévate algo bueno",balanced:"Lo que Skaut elegiría",pro:"Si el dinero no importa"};
   const color = colorMap[type];
   const label = labelMap[type];
   const sub = subMap[type];
