@@ -10,10 +10,14 @@ export const metadata = {
     "qué computador comprar Chile",
     "reviews tecnología Chile",
     "comparador productos tech",
-    "mejores productos tecnología",
     "skaut tech",
     "skaut.cl",
   ],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "SKAUT — Decide en 60 segundos",
     description:

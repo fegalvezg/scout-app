@@ -9,8 +9,8 @@
 }
 
 body {
-  background: #08080a;
-  color: #eeeee8;
+  background: #FFFFFF;
+  color: #1A1A1A;
   font-family: "Space Grotesk", sans-serif;
   margin: 0;
   padding: 0;
@@ -47,6 +47,6 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #CCC;
   border-radius: 4px;
 }
