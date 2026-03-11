@@ -244,7 +244,7 @@ export default function SkautApp(){
       {/* Header */}
       <div style={{borderBottom:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",background:"#FFF"}}>
         <div style={{display:"flex",alignItems:"center",gap:"10px",cursor:"pointer"}} onClick={reset}>
-          <div style={{width:"30px",height:"30px",background:C.logoBg,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"15px",fontWeight:800,color:C.logoText,fontFamily:"'JetBrains Mono',monospace"}}>K</div>
+          <div style={{width:"30px",height:"30px",background:C.logoBg,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 32 32"><polygon points="16,3 27,11 25,25 7,25 5,11" fill="none" stroke="#CDFE04" strokeWidth="2.5" strokeLinejoin="round"/><circle cx="16" cy="15" r="3.5" fill="#CDFE04"/></svg></div>
           <span style={{fontSize:"16px",fontWeight:700,letterSpacing:"-0.5px",color:C.text}}>SKAUT</span>
           <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1.5px",marginLeft:"4px"}}>DECIDE EN 60s</span>
         </div>
