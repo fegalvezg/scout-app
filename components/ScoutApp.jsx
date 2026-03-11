@@ -55,7 +55,7 @@ function ProductDetail({product,type,axes,onClose}){
           </div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 1fr"}}>
             <div style={{padding:"20px",borderRight:`1px solid ${C.border}`}}>
-              <div style={{fontSize:"9px",fontWeight:700,letterSpacing:"2px",color,fontFamily:"monospace",marginBottom:"12px"}}>PERFIL SCOUT</div>
+              <div style={{fontSize:"9px",fontWeight:700,letterSpacing:"2px",color,fontFamily:"monospace",marginBottom:"12px"}}>PERFIL SKAUT</div>
               <ResponsiveContainer width="100%" height={200}>
                 <RadarChart data={chartData} outerRadius="66%">
                   <PolarGrid stroke={C.border} strokeDasharray="3 3"/>
@@ -117,10 +117,10 @@ function ProductDetail({product,type,axes,onClose}){
                 </div>
               </a>
             ))}
-            <div style={{marginTop:"10px",fontSize:"9px",color:C.textMuted,fontFamily:"monospace",textAlign:"center"}}>Scout puede recibir comisión — esto no afecta nuestras recomendaciones.</div>
+            <div style={{marginTop:"10px",fontSize:"9px",color:C.textMuted,fontFamily:"monospace",textAlign:"center"}}>Skaut puede recibir comisión — esto no afecta nuestras recomendaciones.</div>
           </div>
           <div style={{borderTop:`1px solid ${C.border}`,padding:"18px 24px",background:`${color}06`}}>
-            <div style={{fontSize:"9px",fontWeight:700,letterSpacing:"2px",color,fontFamily:"monospace",marginBottom:"6px"}}>VEREDICTO SCOUT</div>
+            <div style={{fontSize:"9px",fontWeight:700,letterSpacing:"2px",color,fontFamily:"monospace",marginBottom:"6px"}}>VEREDICTO SKAUT</div>
             <p style={{margin:0,fontSize:"13px",lineHeight:1.7,color:C.textSec}}>{product.why}</p>
           </div>
         </div>
@@ -217,8 +217,8 @@ export default function ScoutFullDemo(){
       {/* Header */}
       <div style={{borderBottom:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <div style={{display:"flex",alignItems:"center",gap:"10px",cursor:"pointer"}} onClick={reset}>
-          <div style={{width:"30px",height:"30px",background:C.primary,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"15px",fontWeight:800,color:C.bg,fontFamily:"monospace"}}>S</div>
-          <span style={{fontSize:"16px",fontWeight:700,letterSpacing:"-0.5px"}}>SCOUT</span>
+          <div style={{width:"30px",height:"30px",background:C.primary,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"15px",fontWeight:800,color:C.bg,fontFamily:"monospace"}}>K</div>
+          <span style={{fontSize:"16px",fontWeight:700,letterSpacing:"-0.5px"}}>SKAUT</span>
           <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"monospace",letterSpacing:"1.5px",marginLeft:"4px"}}>DECIDE EN 60s</span>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
@@ -309,7 +309,7 @@ export default function ScoutFullDemo(){
       </div>
 
       <div style={{borderTop:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"32px"}}>
-        <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"monospace"}}>SCOUT © 2025 — Sin ads. Sin sponsors. Solo criterio.</span>
+        <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"monospace"}}>SKAUT © 2025 — Sin ads. Sin sponsors. Solo criterio.</span>
         <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"monospace"}}>12 categorías · 35 subcategorías · 3 clics → Decide</span>
       </div>
     </div>

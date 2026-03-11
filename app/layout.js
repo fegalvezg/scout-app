@@ -1,26 +1,30 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "SCOUT — Tu decisión de compra, simplificada",
+  title: "SKAUT — Tu decisión de compra, simplificada",
   description:
-    "Decide qué producto tecnológico comprar en 60 segundos. Sin ads, sin sponsors, solo criterio. Laptops, PCs, teléfonos, monitores, cámaras y más.",
+    "Decide qué producto tecnológico comprar en 60 segundos. Sin ads, sin sponsors, solo criterio. Laptops, PCs, teléfonos, monitores, cámaras y más. Precios en Chile.",
   keywords: [
-    "comparar productos tecnología",
-    "mejor laptop",
-    "qué computador comprar",
+    "comparar productos tecnología Chile",
+    "mejor laptop Chile",
+    "qué computador comprar Chile",
     "reviews tecnología Chile",
     "comparador productos tech",
+    "mejores productos tecnología",
+    "skaut tech",
+    "skaut.cl",
   ],
   openGraph: {
-    title: "SCOUT — Decide en 60 segundos",
+    title: "SKAUT — Decide en 60 segundos",
     description:
-      "El sistema de decisión que te dice qué comprar y por qué. Dos opciones por categoría. Sin vueltas.",
+      "El sistema de decisión que te dice qué comprar y por qué. Dos opciones por categoría. Sin vueltas. Precios en tiendas chilenas.",
     type: "website",
     locale: "es_CL",
+    url: "https://skaut.cl",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SCOUT — Decide en 60 segundos",
+    title: "SKAUT — Decide en 60 segundos",
     description: "Dos opciones. Sin vueltas. Solo criterio.",
   },
 };
