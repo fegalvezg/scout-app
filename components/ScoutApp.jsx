@@ -227,6 +227,7 @@ export default function SkautApp(){
   const pickCat=(k)=>{setCat(k);setSub(null);setStep(1);startTimer();};
   const pickSub=(k)=>{setSub(k);setStep(2);};
   const reset=()=>{setStep(0);setCat(null);setSub(null);setDetail(null);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);};
+  const goBack=()=>{if(step===2){setSub(null);setStep(1);}else if(step===1){setCat(null);setSub(null);setStep(0);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);}};
 
   const catData=cat?DATA[cat]:null;
   const subData=cat&&sub?DATA[cat].subcategories[sub]:null;
@@ -243,10 +244,17 @@ export default function SkautApp(){
 
       {/* Header */}
       <div style={{borderBottom:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",background:"#FFF"}}>
-        <div style={{display:"flex",alignItems:"center",gap:"10px",cursor:"pointer"}} onClick={reset}>
-          <div style={{width:"30px",height:"30px",background:C.logoBg,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 32 32"><polygon points="16,3 27,11 25,25 7,25 5,11" fill="none" stroke="#CDFE04" strokeWidth="2.5" strokeLinejoin="round"/><circle cx="16" cy="15" r="3.5" fill="#CDFE04"/></svg></div>
-          <span style={{fontSize:"16px",fontWeight:700,letterSpacing:"-0.5px",color:C.text}}>SKAUT</span>
-          <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1.5px",marginLeft:"4px"}}>DECIDE EN 60s</span>
+        <div style={{display:"flex",alignItems:"center",gap:"12px"}}>
+          {step>0&&(
+            <button onClick={goBack} style={{display:"flex",alignItems:"center",gap:"5px",background:"#F7F7F8",border:`1px solid ${C.border}`,borderRadius:"7px",padding:"5px 12px",color:C.text,fontSize:"12px",fontWeight:600,cursor:"pointer",fontFamily:"'Space Grotesk',sans-serif",transition:"all 0.15s ease"}}>
+              ← Volver
+            </button>
+          )}
+          <div style={{display:"flex",alignItems:"center",gap:"10px",cursor:"pointer"}} onClick={reset}>
+            <div style={{width:"30px",height:"30px",background:C.logoBg,borderRadius:"8px",display:"flex",alignItems:"center",justifyContent:"center"}}><svg width="18" height="18" viewBox="0 0 32 32"><polygon points="16,3 27,11 25,25 7,25 5,11" fill="none" stroke="#CDFE04" strokeWidth="2.5" strokeLinejoin="round"/><circle cx="16" cy="15" r="3.5" fill="#CDFE04"/></svg></div>
+            <span style={{fontSize:"16px",fontWeight:700,letterSpacing:"-0.5px",color:C.text}}>SKAUT</span>
+            <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1.5px",marginLeft:"4px"}}>DECIDE EN 60s</span>
+          </div>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           {tRef&&(
