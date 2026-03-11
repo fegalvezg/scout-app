@@ -1,5 +1,5 @@
-import ScoutApp from "@/components/ScoutApp";
+import SkautApp from "@/components/ScoutApp";
 
 export default function Home() {
-  return <ScoutApp />;
+  return <SkautApp />;
 }

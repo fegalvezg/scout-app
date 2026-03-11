@@ -8,14 +8,10 @@ import { DATA } from "@/data/products";
 
 const C = {
   bg:"#08080A",card:"#101012",border:"#1E1E22",borderLight:"#2A2A2F",
-  primary:"#CDFE04",value:"#00D1A0",best:"#FF6633",
+  primary:"#CDFE04",entry:"#22C55E",balanced:"#3B82F6",pro:"#F97316",
   text:"#EEEEE8",textSec:"#7A7A80",textMuted:"#48484C",
   green:"#34D399",red:"#F87171",
 };
-
-// ═══════════════════════════════════════════════
-// COMPONENTS
-// ═══════════════════════════════════════════════
 
 function MiniBar({score,color}){
   return(
@@ -29,8 +25,10 @@ function MiniBar({score,color}){
 }
 
 function ProductDetail({product,type,axes,onClose}){
-  const color=type==="value"?C.value:C.best;
-  const label=type==="value"?"PRECIO — CALIDAD":"EL MEJOR";
+  const colorMap = {entry:C.entry,balanced:C.balanced,pro:C.pro};
+  const labelMap = {entry:"EL ENTRADA",balanced:"EL EQUILIBRADO",pro:"REFERENCIA PRO"};
+  const color = colorMap[type];
+  const label = labelMap[type];
   const chartData=axes.map(a=>({axis:a.length>10?a.substring(0,9)+"..":a,score:product.scores[a]}));
   return(
     <div style={{position:"fixed",top:0,left:0,right:0,bottom:0,background:"rgba(0,0,0,0.88)",backdropFilter:"blur(12px)",zIndex:1000,overflowY:"auto",animation:"fadeIn 0.25s ease"}} onClick={onClose}>
@@ -131,9 +129,12 @@ function ProductDetail({product,type,axes,onClose}){
 }
 
 function ProductCard({product,type,axes,onClick}){
-  const color=type==="value"?C.value:C.best;
-  const label=type==="value"?"PRECIO — CALIDAD":"EL MEJOR";
-  const sub=type==="value"?"La compra inteligente":"Sin importar el precio";
+  const colorMap = {entry:C.entry,balanced:C.balanced,pro:C.pro};
+  const labelMap = {entry:"EL ENTRADA",balanced:"EL EQUILIBRADO",pro:"REFERENCIA PRO"};
+  const subMap = {entry:"Lo mejor que puedes conseguir barato",balanced:"La compra inteligente",pro:"Si el dinero no importa"};
+  const color = colorMap[type];
+  const label = labelMap[type];
+  const sub = subMap[type];
   const chartData=axes.map(a=>({axis:a.length>10?a.substring(0,9)+"..":a,score:product.scores[a]}));
   return(
     <div style={{flex:"1 1 320px",background:C.card,borderRadius:"14px",border:`1.5px solid ${color}40`,overflow:"hidden",animation:"fadeIn 0.4s ease both"}}>
@@ -165,6 +166,38 @@ function ProductCard({product,type,axes,onClick}){
   );
 }
 
+function ProReference({product,onClick}){
+  return(
+    <div onClick={onClick} style={{
+      maxWidth:"700px",margin:"28px auto 0",background:C.card,borderRadius:"12px",
+      border:`1px solid ${C.pro}22`,padding:"18px 22px",cursor:"pointer",
+      animation:"fadeIn 0.5s ease 0.2s both",transition:"all 0.2s ease",
+    }}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"12px"}}>
+        <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+          <div style={{width:"36px",height:"36px",borderRadius:"10px",background:`${C.pro}15`,border:`1px solid ${C.pro}30`,display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <span style={{fontSize:"16px"}}>👑</span>
+          </div>
+          <div>
+            <div style={{fontSize:"9px",fontWeight:700,letterSpacing:"2px",color:C.pro,fontFamily:"monospace",marginBottom:"2px"}}>¿Y CUÁL ES EL MEJOR DEL MUNDO?</div>
+            <div style={{display:"flex",alignItems:"center",gap:"8px",flexWrap:"wrap"}}>
+              <span style={{fontSize:"15px",fontWeight:700,color:C.text}}>{product.name}</span>
+              <span style={{fontSize:"11px",color:C.textMuted,fontFamily:"monospace"}}>{product.brand}</span>
+            </div>
+          </div>
+        </div>
+        <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+          <div style={{textAlign:"right"}}>
+            <div style={{fontSize:"16px",fontWeight:800,color:C.pro,fontFamily:"monospace"}}>{product.price}</div>
+          </div>
+          <div style={{fontSize:"10px",color:C.textMuted,fontFamily:"monospace",padding:"6px 10px",border:`1px solid ${C.border}`,borderRadius:"6px"}}>Ver detalle →</div>
+        </div>
+      </div>
+      <p style={{margin:"12px 0 0",fontSize:"12px",color:C.textMuted,lineHeight:1.5,maxWidth:"500px"}}>{product.oneLiner}</p>
+    </div>
+  );
+}
+
 function StepIndicator({step}){
   const steps=["Categoría","¿Para qué?","Decide"];
   return(
@@ -182,10 +215,7 @@ function StepIndicator({step}){
   );
 }
 
-// ═══════════════════════════════════════════════
-// MAIN APP
-// ═══════════════════════════════════════════════
-export default function ScoutFullDemo(){
+export default function SkautApp(){
   const [step,setStep]=useState(0);
   const [cat,setCat]=useState(null);
   const [sub,setSub]=useState(null);
@@ -224,22 +254,21 @@ export default function ScoutFullDemo(){
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           {tRef&&(
             <div style={{display:"flex",alignItems:"center",gap:"6px",background:secs>60?"#FF663315":`${C.primary}10`,border:`1px solid ${secs>60?"#FF663330":C.primary+"22"}`,borderRadius:"7px",padding:"4px 12px"}}>
-              <div style={{width:"5px",height:"5px",borderRadius:"50%",background:secs>60?C.best:C.primary,animation:"blink 1s infinite"}}/>
-              <span style={{fontFamily:"monospace",fontSize:"12px",fontWeight:700,color:secs>60?C.best:C.primary}}>{Math.floor(secs/60)}:{String(secs%60).padStart(2,"0")}</span>
+              <div style={{width:"5px",height:"5px",borderRadius:"50%",background:secs>60?C.pro:C.primary,animation:"blink 1s infinite"}}/>
+              <span style={{fontFamily:"monospace",fontSize:"12px",fontWeight:700,color:secs>60?C.pro:C.primary}}>{Math.floor(secs/60)}:{String(secs%60).padStart(2,"0")}</span>
             </div>
           )}
           {step>0&&<button onClick={reset} style={{background:"transparent",border:`1px solid ${C.border}`,borderRadius:"7px",padding:"5px 12px",color:C.textSec,fontSize:"11px",fontWeight:600,cursor:"pointer"}}>← Inicio</button>}
         </div>
       </div>
 
-      <div style={{maxWidth:"940px",margin:"0 auto",padding:"28px 24px"}}>
+      <div style={{maxWidth:"960px",margin:"0 auto",padding:"28px 24px"}}>
         <StepIndicator step={step}/>
 
-        {/* Step 0: Categories */}
         {step===0&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <h2 style={{fontSize:"28px",fontWeight:700,margin:"0 0 6px",letterSpacing:"-1px"}}>¿Qué estás buscando?</h2>
-            <p style={{fontSize:"14px",color:C.textSec,margin:"0 0 28px"}}>12 categorías. Elige una y te ayudamos a decidir.</p>
+            <p style={{fontSize:"14px",color:C.textSec,margin:"0 0 28px"}}>Elige una categoría y te ayudamos a decidir.</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:"10px"}}>
               {catKeys.map((k,i)=>{
                 const d=DATA[k];
@@ -256,7 +285,6 @@ export default function ScoutFullDemo(){
           </div>
         )}
 
-        {/* Step 1: Subcategories */}
         {step===1&&catData&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"6px"}}>
@@ -278,7 +306,6 @@ export default function ScoutFullDemo(){
           </div>
         )}
 
-        {/* Step 2: Decision */}
         {step===2&&subData&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <div style={{textAlign:"center",marginBottom:"24px"}}>
@@ -292,16 +319,24 @@ export default function ScoutFullDemo(){
               <h2 style={{fontSize:"24px",fontWeight:700,margin:"0 0 4px",letterSpacing:"-0.8px"}}>Dos opciones. Elige.</h2>
               <p style={{fontSize:"13px",color:C.textSec,margin:0}}>Haz clic en "Ver detalle" para specs, pros/cons y dónde comprar.</p>
             </div>
+
+            {/* Main 2 cards: Entry vs Balanced */}
             <div style={{display:"flex",gap:"14px",flexWrap:"wrap",justifyContent:"center",alignItems:"flex-start"}}>
-              <ProductCard product={subData.bestValue} type="value" axes={subData.axes} onClick={()=>setDetail({product:subData.bestValue,type:"value"})}/>
+              <ProductCard product={subData.entry} type="entry" axes={subData.axes} onClick={()=>setDetail({product:subData.entry,type:"entry"})}/>
               <div style={{display:"flex",alignItems:"center",justifyContent:"center",alignSelf:"center",flexShrink:0}}>
                 <div style={{width:"38px",height:"38px",borderRadius:"50%",background:C.card,border:`2px solid ${C.border}`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"monospace",fontSize:"10px",fontWeight:800,color:C.textMuted}}>VS</div>
               </div>
-              <ProductCard product={subData.theBest} type="best" axes={subData.axes} onClick={()=>setDetail({product:subData.theBest,type:"best"})}/>
+              <ProductCard product={subData.balanced} type="balanced" axes={subData.axes} onClick={()=>setDetail({product:subData.balanced,type:"balanced"})}/>
             </div>
+
+            {/* Pro Reference - anchor below */}
+            {subData.proRef && (
+              <ProReference product={subData.proRef} onClick={()=>setDetail({product:subData.proRef,type:"pro"})}/>
+            )}
+
             {secs>60&&(
-              <div style={{textAlign:"center",marginTop:"24px",padding:"10px 18px",background:`${C.best}10`,border:`1px solid ${C.best}22`,borderRadius:"8px",animation:"fadeIn 0.3s ease"}}>
-                <span style={{fontSize:"12px",color:C.best,fontFamily:"monospace",fontWeight:600}}>⏱ +60s. Confía en tu instinto.</span>
+              <div style={{textAlign:"center",marginTop:"24px",padding:"10px 18px",background:`${C.pro}10`,border:`1px solid ${C.pro}22`,borderRadius:"8px",animation:"fadeIn 0.3s ease"}}>
+                <span style={{fontSize:"12px",color:C.pro,fontFamily:"monospace",fontWeight:600}}>⏱ +60s. Confía en tu instinto.</span>
               </div>
             )}
           </div>
@@ -310,7 +345,7 @@ export default function ScoutFullDemo(){
 
       <div style={{borderTop:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"32px"}}>
         <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"monospace"}}>SKAUT © 2025 — Sin ads. Sin sponsors. Solo criterio.</span>
-        <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"monospace"}}>12 categorías · 35 subcategorías · 3 clics → Decide</span>
+        <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"monospace"}}>skaut.cl · 3 clics → Decide</span>
       </div>
     </div>
   );
