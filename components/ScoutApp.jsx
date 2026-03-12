@@ -378,7 +378,7 @@ export default function SkautApp(){
 
       <div style={{borderTop:`1px solid ${C.border}`,padding:"14px 24px",display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"32px"}}>
         <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>SKAUT © 2026 — Sin ads. Sin sponsors. Solo criterio.</span>
-        <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>skaut.cl · 3 clics → Decide</span>
+        <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>skaut.cl · Pocos clics → Decide</span>
       </div>
     </div>
   );
