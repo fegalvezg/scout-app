@@ -5,6 +5,7 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
 } from "recharts";
 import { DATA } from "@/data/products";
+import { GROUPS } from "@/data/groups";
 import PCBuilder from "./PCBuilder";
 
 const C = {
@@ -235,7 +236,6 @@ export default function SkautApp(){
   const catData=cat?DATA[cat]:null;
   const subCatData=cat&&sub?DATA[cat].subcategories[sub]:null;
   const subData=cat&&sub?(subSub&&DATA[cat]?.subcategories[sub]?.subSubcategories?DATA[cat].subcategories[sub].subSubcategories[subSub]:DATA[cat].subcategories[sub]):null;
-  const catKeys=Object.keys(DATA);
 
   return(
     <div style={{background:C.bg,minHeight:"100vh",color:C.text,fontFamily:"'Space Grotesk',sans-serif"}}>
@@ -277,20 +277,46 @@ export default function SkautApp(){
         {step===0&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <h2 style={{fontSize:"28px",fontWeight:700,margin:"0 0 6px",letterSpacing:"-1px"}}>¿Qué estás buscando?</h2>
-            <p style={{fontSize:"14px",color:C.textSec,margin:"0 0 28px"}}>Elige una categoría y te ayudamos a decidir.</p>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:"10px"}}>
-              {catKeys.map((k,i)=>{
-                const d=DATA[k];
-                const subCount=d.isBuilderFlow?null:Object.keys(d.subcategories).length;
-                return(
-                  <button key={k} onClick={()=>pickCat(k)} style={{background:"#FFF",border:`1.5px solid ${C.border}`,borderRadius:"12px",padding:"20px 16px",cursor:"pointer",textAlign:"left",display:"flex",flexDirection:"column",gap:"8px",transition:"all 0.15s ease",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",animation:`fadeIn 0.3s ease ${i*0.04}s both`}}>
-                    <span style={{fontSize:"26px"}}>{d.icon}</span>
-                    <span style={{fontSize:"14px",fontWeight:700,color:C.text}}>{d.label}</span>
-                    <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{d.isBuilderFlow?"2 flujos →":`${subCount} ${subCount===1?"uso":"usos"} →`}</span>
-                  </button>
-                );
-              })}
-            </div>
+            <p style={{fontSize:"14px",color:C.textSec,margin:"0 0 32px"}}>Elige una categoría y te ayudamos a decidir.</p>
+            {GROUPS.map((group,gi)=>{
+              const activeCats=group.categories.filter(k=>DATA[k]);
+              if(activeCats.length===0&&group.categories.length>0) return null;
+              const isComingSoon=activeCats.length===0;
+              return(
+                <div key={group.id} style={{marginBottom:"32px",animation:`fadeIn 0.4s ease ${gi*0.08}s both`}}>
+                  {/* Group header */}
+                  <div style={{display:"flex",alignItems:"baseline",gap:"10px",marginBottom:"12px"}}>
+                    <div style={{display:"flex",alignItems:"center",gap:"7px"}}>
+                      <span style={{fontSize:"15px"}}>{group.icon}</span>
+                      <span style={{fontSize:"13px",fontWeight:700,color:C.text,letterSpacing:"-0.2px"}}>{group.label}</span>
+                    </div>
+                    <div style={{flex:1,height:"1px",background:C.border,alignSelf:"center"}}/>
+                    <span style={{fontSize:"11px",color:C.textMuted,whiteSpace:"nowrap"}}>{group.desc}</span>
+                  </div>
+                  {/* Category cards or coming soon */}
+                  {isComingSoon?(
+                    <div style={{padding:"14px 18px",background:C.card,border:`1.5px dashed ${C.border}`,borderRadius:"12px",display:"flex",alignItems:"center",gap:"10px"}}>
+                      <span style={{fontSize:"18px",opacity:0.4}}>{group.icon}</span>
+                      <span style={{fontSize:"12px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace",letterSpacing:"1px"}}>PRÓXIMAMENTE</span>
+                    </div>
+                  ):(
+                    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(155px,1fr))",gap:"10px"}}>
+                      {activeCats.map((k,i)=>{
+                        const d=DATA[k];
+                        const subCount=d.isBuilderFlow?null:Object.keys(d.subcategories).length;
+                        return(
+                          <button key={k} onClick={()=>pickCat(k)} style={{background:"#FFF",border:`1.5px solid ${C.border}`,borderRadius:"12px",padding:"18px 15px",cursor:"pointer",textAlign:"left",display:"flex",flexDirection:"column",gap:"7px",transition:"all 0.15s ease",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",animation:`fadeIn 0.3s ease ${i*0.04}s both`}}>
+                            <span style={{fontSize:"24px"}}>{d.icon}</span>
+                            <span style={{fontSize:"13px",fontWeight:700,color:C.text}}>{d.label}</span>
+                            <span style={{fontSize:"9px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{d.isBuilderFlow?"2 flujos →":`${subCount} ${subCount===1?"uso":"usos"} →`}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
 
