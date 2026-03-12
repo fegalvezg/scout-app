@@ -199,7 +199,7 @@ function ProReference({product,onClick}){
 }
 
 function StepIndicator({step}){
-  const steps=["Categoría","¿Para qué?","Decide"];
+  const steps=["Categoría","Tipo","Uso","Decide"];
   return(
     <div style={{display:"flex",alignItems:"center",gap:"0",marginBottom:"24px"}}>
       {steps.map((s,i)=>(
@@ -208,7 +208,7 @@ function StepIndicator({step}){
             <div style={{width:"24px",height:"24px",borderRadius:"50%",background:i<step?C.primary:i===step?"#F0F0F2":"transparent",border:`1.5px solid ${i<=step?C.primary:C.border}`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"10px",fontWeight:700,color:i<step?"#FFF":i===step?C.primary:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{i<step?"✓":i+1}</div>
             <span style={{fontSize:"11px",fontWeight:600,color:i<=step?C.text:C.textMuted}}>{s}</span>
           </div>
-          {i<2&&<div style={{width:"32px",height:"1px",margin:"0 10px",background:i<step?C.primary:C.border}}/>}
+          {i<steps.length-1&&<div style={{width:"32px",height:"1px",margin:"0 10px",background:i<step?C.primary:C.border}}/>}
         </div>
       ))}
     </div>
@@ -219,18 +219,21 @@ export default function SkautApp(){
   const [step,setStep]=useState(0);
   const [cat,setCat]=useState(null);
   const [sub,setSub]=useState(null);
+  const [subSub,setSubSub]=useState(null);
   const [detail,setDetail]=useState(null);
   const [secs,setSecs]=useState(0);
   const [tRef,setTRef]=useState(null);
 
   const startTimer=()=>{if(tRef)clearInterval(tRef);setSecs(0);const t=setInterval(()=>setSecs(s=>s+1),1000);setTRef(t);};
-  const pickCat=(k)=>{setCat(k);setSub(null);setStep(1);startTimer();};
-  const pickSub=(k)=>{setSub(k);setStep(2);};
-  const reset=()=>{setStep(0);setCat(null);setSub(null);setDetail(null);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);};
-  const goBack=()=>{if(step===2){setSub(null);setStep(1);}else if(step===1){setCat(null);setSub(null);setStep(0);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);}};
+  const pickCat=(k)=>{setCat(k);setSub(null);setSubSub(null);setStep(1);startTimer();};
+  const pickSub=(k)=>{setSub(k);const s=DATA[cat]?.subcategories[k];if(s?.subSubcategories){setStep(2);}else{setStep(3);}};
+  const pickSubSub=(k)=>{setSubSub(k);setStep(3);};
+  const reset=()=>{setStep(0);setCat(null);setSub(null);setSubSub(null);setDetail(null);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);};
+  const goBack=()=>{if(step===3){if(subSub){setSubSub(null);setStep(2);}else{setSub(null);setStep(1);}}else if(step===2){setSub(null);setStep(1);}else if(step===1){setCat(null);setSub(null);setStep(0);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);}};
 
   const catData=cat?DATA[cat]:null;
-  const subData=cat&&sub?DATA[cat].subcategories[sub]:null;
+  const subCatData=cat&&sub?DATA[cat].subcategories[sub]:null;
+  const subData=cat&&sub?(subSub&&DATA[cat]?.subcategories[sub]?.subSubcategories?DATA[cat].subcategories[sub].subSubcategories[subSub]:DATA[cat].subcategories[sub]):null;
   const catKeys=Object.keys(DATA);
 
   return(
@@ -311,15 +314,37 @@ export default function SkautApp(){
           </div>
         )}
 
-        {step===2&&subData&&(
+        {step===2&&subCatData&&subCatData.subSubcategories&&(
+          <div style={{animation:"fadeIn 0.4s ease"}}>
+            <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"6px"}}>
+              <span style={{fontSize:"26px"}}>{subCatData.icon}</span>
+              <h2 style={{fontSize:"26px",fontWeight:700,margin:0,letterSpacing:"-0.8px"}}>{subCatData.label}</h2>
+            </div>
+            <p style={{fontSize:"14px",color:C.textSec,margin:"0 0 28px"}}>¿Para qué uso lo necesitas?</p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))",gap:"10px"}}>
+              {Object.entries(subCatData.subSubcategories).map(([k,v],i)=>(
+                <button key={k} onClick={()=>pickSubSub(k)} style={{background:"#FFF",border:`1.5px solid ${C.border}`,borderRadius:"12px",padding:"20px 18px",cursor:"pointer",textAlign:"left",display:"flex",flexDirection:"column",gap:"6px",transition:"all 0.15s ease",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",animation:`fadeIn 0.3s ease ${i*0.05}s both`}}>
+                  <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+                    <span style={{fontSize:"20px"}}>{v.icon}</span>
+                    <span style={{fontSize:"15px",fontWeight:700,color:C.text}}>{v.label}</span>
+                  </div>
+                  <span style={{fontSize:"12px",color:C.textSec,lineHeight:1.4}}>{v.desc}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {step===3&&subData&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <div style={{textAlign:"center",marginBottom:"24px"}}>
               <div style={{display:"inline-flex",alignItems:"center",gap:"6px",background:"#F7F7F8",border:`1px solid ${C.border}`,borderRadius:"7px",padding:"5px 12px",marginBottom:"10px"}}>
                 <span style={{fontSize:"14px"}}>{catData.icon}</span>
                 <span style={{fontSize:"10px",color:C.textSec,fontFamily:"'JetBrains Mono',monospace"}}>{catData.label}</span>
                 <span style={{color:C.textMuted}}>›</span>
-                <span style={{fontSize:"14px"}}>{subData.icon}</span>
-                <span style={{fontSize:"10px",color:C.text,fontFamily:"'JetBrains Mono',monospace",fontWeight:600}}>{subData.label}</span>
+                <span style={{fontSize:"14px"}}>{subCatData.icon}</span>
+                <span style={{fontSize:"10px",color:subSub?C.textSec:C.text,fontFamily:"'JetBrains Mono',monospace",fontWeight:subSub?400:600}}>{subCatData.label}</span>
+                {subSub&&(<><span style={{color:C.textMuted}}>›</span><span style={{fontSize:"14px"}}>{subData.icon}</span><span style={{fontSize:"10px",color:C.text,fontFamily:"'JetBrains Mono',monospace",fontWeight:600}}>{subData.label}</span></>)}
               </div>
               <h2 style={{fontSize:"24px",fontWeight:700,margin:"0 0 4px",letterSpacing:"-0.8px"}}>Dos opciones. Elige.</h2>
               <p style={{fontSize:"13px",color:C.textSec,margin:0}}>Haz clic en "Ver detalle" para specs, pros/cons y dónde comprar.</p>
