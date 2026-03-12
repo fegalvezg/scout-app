@@ -8,9 +8,11 @@
 // ═══════════════════════════════════════════════════════════
 
 import { componentespc } from "./componentespc.js";
+import { camaras } from "./camaras.js";
 
 export const DATA = {
   componentespc,
+  camaras,
   laptops: {
     icon: "💻", label: "Laptops",
     subcategories: {
