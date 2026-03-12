@@ -12,7 +12,7 @@ export const GROUPS = [
     label: "Computación",
     desc: "Equipos y componentes para trabajar o jugar",
     // Futuros: perifericos, redes, almacenamiento
-    categories: ["laptops", "pcescritorios", "componentespc", "monitores", "accesorioslaptops"],
+    categories: ["laptops", "pcescritorios", "componentespc", "monitores", "accesoriosperifericos"],
   },
   {
     id: "movil",
