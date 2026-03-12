@@ -402,6 +402,27 @@ Un componente puede ser el mejor del mundo pero si no es compatible con lo que e
 
 ---
 
+## Regla de links de compra
+
+Los links en el campo `stores[].url` deben apuntar **siempre al retail o vendedor final**, nunca a comparadores. SoloTodo.cl y Knasta.cl se usan solo como herramienta de investigación para encontrar disponibilidad y comparar precios históricos. El link que se guarda en el producto debe ser de la tienda donde el usuario va a comprar directamente:
+
+- Falabella (falabella.com)
+- Ripley (simple.ripley.cl)
+- Paris (paris.cl)
+- MercadoLibre Chile (mercadolibre.cl) — solo vendedores oficiales
+- PCFactory (pcfactory.cl)
+- SP Digital (spdigital.cl)
+- Hites (hites.com)
+- Lider / Lider.cl
+- ABC (abc.cl)
+- ASUS Store Chile (cl.store.asus.com)
+- Lenovo Chile (lenovo.com/cl)
+- Otras tiendas chilenas con despacho verificado
+
+**Nunca usar links de:** SoloTodo, Knasta, Amazon US, AliExpress, eBay, ni cualquier comparador o tienda sin despacho a Chile.
+
+---
+
 ## Proceso de selección
 
 Para cada punto de decisión, el proceso es:
