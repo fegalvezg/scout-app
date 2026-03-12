@@ -44,6 +44,10 @@ Categories like `componentespc` use a different structure. Instead of subcategor
 
 **Recharts** is used for radar charts (`RadarChart`) displaying 7-axis product scores.
 
+## Product selection criteria
+
+`data/CRITERIOS.md` contains the full product selection guide: universal filters (availability in Chile, verified pricing, real reviews, local warranty, no known defects), tier definitions (entry/balanced/proRef), per-category criteria, evaluation sources, and disqualification rules. **Always consult this file before recommending or updating products.**
+
 ## Adding/editing products
 
 Product data lives in `data/products.js` (or in separate files imported by it). Each subcategory needs:
