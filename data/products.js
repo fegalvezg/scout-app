@@ -7,7 +7,10 @@
 //   proRef   → 🟠 Referencia: el mejor del mundo (ancla)
 // ═══════════════════════════════════════════════════════════
 
+import { componentespc } from "./componentespc.js";
+
 export const DATA = {
+  componentespc,
   laptops: {
     icon: "💻", label: "Laptops",
     subcategories: {

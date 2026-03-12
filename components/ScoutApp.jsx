@@ -5,6 +5,7 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
 } from "recharts";
 import { DATA } from "@/data/products";
+import PCBuilder from "./PCBuilder";
 
 const C = {
   bg:"#FFFFFF",card:"#F7F7F8",cardHover:"#F0F0F2",border:"#E2E2E6",borderLight:"#ECECEF",
@@ -280,12 +281,12 @@ export default function SkautApp(){
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))",gap:"10px"}}>
               {catKeys.map((k,i)=>{
                 const d=DATA[k];
-                const subCount=Object.keys(d.subcategories).length;
+                const subCount=d.isBuilderFlow?null:Object.keys(d.subcategories).length;
                 return(
                   <button key={k} onClick={()=>pickCat(k)} style={{background:"#FFF",border:`1.5px solid ${C.border}`,borderRadius:"12px",padding:"20px 16px",cursor:"pointer",textAlign:"left",display:"flex",flexDirection:"column",gap:"8px",transition:"all 0.15s ease",boxShadow:"0 1px 4px rgba(0,0,0,0.04)",animation:`fadeIn 0.3s ease ${i*0.04}s both`}}>
                     <span style={{fontSize:"26px"}}>{d.icon}</span>
                     <span style={{fontSize:"14px",fontWeight:700,color:C.text}}>{d.label}</span>
-                    <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{subCount} {subCount===1?"uso":"usos"} →</span>
+                    <span style={{fontSize:"10px",color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{d.isBuilderFlow?"2 flujos →":`${subCount} ${subCount===1?"uso":"usos"} →`}</span>
                   </button>
                 );
               })}
@@ -293,7 +294,11 @@ export default function SkautApp(){
           </div>
         )}
 
-        {step===1&&catData&&(
+        {step===1&&catData&&catData.isBuilderFlow&&(
+          <PCBuilder data={catData} onBack={()=>{setCat(null);setSub(null);setSubSub(null);setStep(0);setSecs(0);if(tRef)clearInterval(tRef);setTRef(null);}}/>
+        )}
+
+        {step===1&&catData&&!catData.isBuilderFlow&&(
           <div style={{animation:"fadeIn 0.4s ease"}}>
             <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"6px"}}>
               <span style={{fontSize:"26px"}}>{catData.icon}</span>
