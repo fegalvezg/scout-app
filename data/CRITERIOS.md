@@ -37,7 +37,8 @@ Criterio: máximo rendimiento y calidad sin importar precio, siempre que esté d
 ### 💰 El Barato (entry)
 No es basura barata. Es el producto más económico que sigue cumpliendo bien su función. El que compras cuando el presupuesto es ajustado pero no quieres arrepentirte. Ahorro inteligente, no ahorro a ciegas.
 
-Criterio: precio mínimo que no sacrifica la experiencia esencial del producto. Si un producto barato tiene un defecto que arruina la experiencia (ej: laptop con 4GB de RAM en 2026), no califica.
+Criterio: precio mínimo que sacrifica un poco la experiencia esencial del producto. 
+Si un producto barato tiene un defecto que arruina la experiencia (ej: laptop con 4GB de RAM en 2026), no califica.
 
 ---
 
@@ -69,14 +70,16 @@ Criterio: precio mínimo que no sacrifica la experiencia esencial del producto. 
 **Gamer:**
 - GPU es rey. RTX 3050 es el piso, RTX 4060 es el sweet spot, RTX 5070+ es premium
 - Pantalla mínimo 120Hz (60Hz descalifica para gamer)
-- RAM mínimo 8GB
+- RAM mínimo 16GB, pero aceptable 8GB para version El Barato
 - Refrigeración: se penalizan modelos con throttling conocido
 - Peso no importa tanto, rendimiento manda
 
 **Profesional:**
-- Procesador multinúcleo potente (i7/i9 o Ryzen 7/9)
-- RAM 16GB mínimo, 32GB preferido
-- Pantalla con buena cobertura de color (sRGB 100%+)
+- Pantalla cómoda para jornadas largas (IPS, antirreflejo)
+- Teclado de calidad
+- Webcam decente (1080p, no 720p)
+- Batería sólida
+- USB-C con carga preferido
 - Construcción sólida, teclado cómodo para jornadas largas
 - Batería relevante (8+ horas)
 
