@@ -376,7 +376,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 23.8\""},{label:"Resolución",value:"1920x1080 (FHD)"},{label:"Tasa de refresco",value:"100Hz"},{label:"Ergonomía",value:"Tilt -5°/20°"},{label:"Anti-fatiga",value:"Flicker-Free + Low Blue Light"},{label:"Conectividad",value:"HDMI x1, VGA x1"}],
           pros: ["Flicker-Free y Low Blue Light integrados","IPS con buena uniformidad de color y 178° de visión","Precio bajo $60.000 en Unimart"],
           cons: ["Solo tilt, sin ajuste de altura","Sin USB-C, USB hub ni DisplayPort","Solo FHD en 24\""],
-          stores: [{name:"PCFactory",price:"~$90.000",url:"https://www.pcfactory.cl/producto/51914-lg-monitor-24-full-hd-panel-ips-100hz-freesync-24mr400-b",best:true,tag:"Retiro en tienda"},{name:"SoloTodo",price:"Desde $56.200",url:"https://www.solotodo.cl/products/233546-lg-24mr400-b",best:false,tag:"Comparar tiendas"}],
+          stores: [{name:"PCFactory",price:"~$90.000",url:"https://www.pcfactory.cl/producto/51914-lg-monitor-24-full-hd-panel-ips-100hz-freesync-24mr400-b",best:true,tag:"Retiro en tienda"},{name:"Falabella",price:"~$90.000",url:"https://www.falabella.com/falabella-cl/product/132686687/Monitor-LG-24MR400-B-23.8-1920x1080-100Hz-HDMI-VGA-Plano-Negro/132686688",best:false,tag:null}],
           scores: {"Ergonomía":40,"Calidad Color":62,"Conectividad":35,"Anti-Fatiga":85,"Resolución":55,"Tamaño":60,"Precio/Valor":98},
         },
         balanced: {
@@ -410,7 +410,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 27\""},{label:"Resolución",value:"2560x1440 (QHD)"},{label:"Cobertura color",value:"100% sRGB / 100% Rec.709"},{label:"Delta E",value:"< 2 (CalMAN Verified)"},{label:"Ergonomía",value:"Altura + Pivot + Tilt + Swivel"},{label:"Conectividad",value:"DP + Mini DP + HDMI + DVI-D + USB 3.0 hub"}],
           pros: ["Delta E<2 CalMAN Verified de fábrica — colores confiables","Stand ergonómico completo con pivot vertical","Garantía ASUS 3 años + informe de calibración incluido"],
           cons: ["No cubre DCI-P3 (limitado a sRGB)","Sin USB-C — necesitas cable separado para laptop","75Hz — no para gaming"],
-          stores: [{name:"Winpy",price:"$229.824",url:"https://www.winpy.cl/venta/monitor-asus-proart-pa278qv-de-27-ips-wqhd-75hz-dp-hdmi-dvi-d-vesa/",best:true,tag:"Mejor precio"},{name:"SoloTodo",price:"Desde $213.390",url:"https://www.solotodo.cl/products/82594-asus-proart-pa278qv",best:false,tag:"Comparar 8+ tiendas"}],
+          stores: [{name:"Winpy",price:"$229.824",url:"https://www.winpy.cl/venta/monitor-asus-proart-pa278qv-de-27-ips-wqhd-75hz-dp-hdmi-dvi-d-vesa/",best:true,tag:"Mejor precio"},{name:"PCFactory",price:"$213.390",url:"https://www.pcfactory.cl/producto/37250-asus-monitor-de-diseno-asus-proart-27--qhd-75hz-ips-5ms-adaptivesync-pa278qv",best:false,tag:"Retiro en tienda"}],
           scores: {"Precisión Color":85,"Cobertura DCI-P3":55,"Delta E":88,"Resolución":82,"Calibración":88,"Ergonomía":90,"Precio/Valor":85},
         },
         balanced: {
@@ -420,7 +420,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 27\" 4K"},{label:"Resolución",value:"3840x2160 (4K UHD)"},{label:"Cobertura color",value:"99% sRGB / 99% Rec.709"},{label:"Delta E",value:"≤ 3 (Pantone + CalMAN Verified)"},{label:"Conectividad",value:"USB-C 65W PD + DP 1.4 + HDMI 2.0 + USB hub"},{label:"Ergonomía",value:"Altura + Pivot + Tilt + Swivel"}],
           pros: ["Certificación dual Pantone + CalMAN Verified de fábrica","USB-C 65W — un cable para imagen y carga","Modo M-Book para previsualización de colores Mac"],
           cons: ["No cubre DCI-P3 amplio (solo sRGB/Rec.709)","65W puede no alcanzar para laptops de alto consumo","Solo disponible vía MercadoLibre (BenQ oficial)"],
-          stores: [{name:"BenQ Store (MercadoLibre)",price:"$705.166",url:"https://articulo.mercadolibre.cl/MLC-2513959485",best:true,tag:"BenQ oficial Chile"},{name:"SoloTodo",price:"Desde $705.166",url:"https://www.solotodo.cl/products/264780-benq-pd2705u-9hlkdlatba",best:false,tag:"Comparar tiendas"}],
+          stores: [{name:"BenQ Store (MercadoLibre)",price:"$705.166",url:"https://articulo.mercadolibre.cl/MLC-2513959485",best:true,tag:"BenQ oficial Chile"},{name:"Winpy",price:"~$705.000",url:"https://www.winpy.cl/venta/monitor-benq-pd2705u-de-27-ips-4k-srgb-hdr10-dp-hdmi-usb-c-vesa/",best:false,tag:"Verificar stock"}],
           scores: {"Precisión Color":90,"Cobertura DCI-P3":60,"Delta E":88,"Resolución":92,"Calibración":92,"Ergonomía":90,"Precio/Valor":62},
         },
         proRef: {
@@ -478,7 +478,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 27\" 4K"},{label:"Resolución",value:"3840x2160 (163 PPI)"},{label:"Tasa de refresco",value:"144Hz, 1ms GtG"},{label:"HDR",value:"HDR10+"},{label:"Ergonomía",value:"Altura + Pivot + Tilt + Swivel"},{label:"Extra",value:"Gaming Hub (Tizen), FreeSync Premium Pro"}],
           pros: ["163 PPI — texto de código nítido como Retina","144Hz para scrolleo ultra fluido de código","Stand ergonómico completo con pivot vertical"],
           cons: ["Sin USB-C — necesitas cable DP/HDMI separado","Orientado a gaming (features innecesarias para dev)","$390K es más que monitores QHD equivalentes"],
-          stores: [{name:"Thundertech",price:"$390.202",url:"https://thundertech.cl/monitor-samsung-odyssey-g7-g70d-27-4k-uhd-144hz-gaming",best:true,tag:"Mejor precio"},{name:"PCFactory",price:"$504.390",url:"https://www.pcfactory.cl/producto/54389-samsung-monitor-gamer-samsung-27--uhd-144hz-fast-ips-1ms-hdr10--odyssey-g7-g70d",best:false,tag:"Retiro en tienda"},{name:"SoloTodo",price:"Desde $390.202",url:"https://www.solotodo.cl/products/271820-samsung-ls27dg700elxzs",best:false,tag:"Comparar 18 tiendas"}],
+          stores: [{name:"Thundertech",price:"$390.202",url:"https://thundertech.cl/monitor-samsung-odyssey-g7-g70d-27-4k-uhd-144hz-gaming",best:true,tag:"Mejor precio"},{name:"TecnoMas",price:"$390.210",url:"https://tecnomas.cl/producto/samsung-ls27dg700elxzs",best:false,tag:"20+ unidades"},{name:"PCFactory",price:"$504.390",url:"https://www.pcfactory.cl/producto/54389-samsung-monitor-gamer-samsung-27--uhd-144hz-fast-ips-1ms-hdr10--odyssey-g7-g70d",best:false,tag:"Retiro en tienda"}],
           scores: {"Densidad Píxeles":92,"Espacio Pantalla":90,"Ergonomía":85,"Conectividad":60,"Anti-Fatiga":82,"Pivot":88,"Precio/Valor":78},
         },
         balanced: {
@@ -488,7 +488,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 27\" 4K"},{label:"Resolución",value:"3840x2160 (163 PPI)"},{label:"USB-C",value:"90W Power Delivery"},{label:"Color",value:"95% DCI-P3, Calman + Pantone Verified"},{label:"Ergonomía",value:"Altura + Pivot + Tilt + Swivel"},{label:"Extra",value:"KVM switch + 2x5W speakers + DisplayHDR 400"}],
           pros: ["USB-C 90W + KVM — un cable, dos equipos","Calman + Pantone: colores confiables para diseño web","Pivot vertical + stand ergonómico completo"],
           cons: ["Solo 60Hz (suficiente para desarrollo)","Solo 1 tienda en Chile (Centrale)","350 nits típico — no ideal en espacios muy iluminados"],
-          stores: [{name:"Centrale",price:"$548.990",url:"https://centrale.cl/producto/monitor-profesional-27-benq-4k-uhd-ips-10-bit-60hz-hdr10-400nits-pd2706u/",best:true,tag:"Única tienda en Chile"},{name:"SoloTodo",price:"$548.990",url:"https://www.solotodo.cl/products/364181-benq-pd2706u",best:false,tag:"Verificar stock"}],
+          stores: [{name:"Centrale",price:"$548.990",url:"https://centrale.cl/producto/monitor-profesional-27-benq-4k-uhd-ips-10-bit-60hz-hdr10-400nits-pd2706u/",best:true,tag:"Única tienda en Chile"}],
           scores: {"Densidad Píxeles":92,"Espacio Pantalla":90,"Ergonomía":92,"Conectividad":92,"Anti-Fatiga":88,"Pivot":92,"Precio/Valor":75},
         },
         proRef: {
@@ -522,7 +522,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"Nano IPS 34\" curvo 800R 21:9"},{label:"Resolución",value:"3440x1440 (UWQHD)"},{label:"Tasa de refresco",value:"160Hz"},{label:"Tiempo de respuesta",value:"1ms GtG"},{label:"USB-C",value:"94W Power Delivery + KVM switch"},{label:"Sync",value:"G-Sync Compatible + FreeSync Premium Pro"}],
           pros: ["3440x1440 160Hz con Nano IPS vibrante","USB-C 94W + KVM para dos computadores","800R curvatura más pronunciada en IPS"],
           cons: ["Precio de $599.990","Sin HDR de alta calidad","Stand sin ajuste de altura"],
-          stores: [{name:"PCFactory",price:"$599.990",url:"#",best:true,tag:"Mejor precio"},{name:"Solotodo",price:"$624.990",url:"#",best:false,tag:null},{name:"Falabella",price:"$619.990",url:"#",best:false,tag:null}],
+          stores: [{name:"PCFactory",price:"$599.990",url:"#",best:true,tag:"Mejor precio"},{name:"Falabella",price:"$619.990",url:"#",best:false,tag:null}],
           scores: {"Ancho Pantalla":88,"Resolución":88,"Curvatura":85,"Refresh Rate":88,"PBP/PIP":88,"Color":90,"Precio/Valor":72},
         },
         proRef: {
@@ -556,7 +556,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 16\" QHD+"},{label:"Resolución",value:"2560x1600 (QHD+)"},{label:"Peso",value:"720g"},{label:"Brillo",value:"350 nits"},{label:"USB-C",value:"65W Power Delivery pass-through"},{label:"Stand",value:"Cubierta magnética integrada"}],
           pros: ["QHD+ para texto nítido en reuniones y trabajo","Cubierta magnética como stand ajustable","USB-C 65W PD: un cable para todo"],
           cons: ["720g no es el más liviano","Precio de $299.990","350 nits puede ser bajo al exterior"],
-          stores: [{name:"PCFactory",price:"$299.990",url:"#",best:true,tag:"Mejor precio"},{name:"Falabella",price:"$319.990",url:"#",best:false,tag:null},{name:"Solotodo",price:"$309.990",url:"#",best:false,tag:null}],
+          stores: [{name:"PCFactory",price:"$299.990",url:"#",best:true,tag:"Mejor precio"},{name:"Falabella",price:"$319.990",url:"#",best:false,tag:null}],
           scores: {"Portabilidad":85,"Calidad Imagen":88,"Alimentación USB-C":90,"Resolución":88,"Brillo":80,"Compatibilidad":90,"Precio/Valor":78},
         },
         proRef: {
@@ -580,7 +580,7 @@ export const DATA = {
           specs: [{label:"Panel",value:"IPS 24\" FHD"},{label:"Resolución",value:"1920x1080 (FHD)"},{label:"Bisel",value:"Fino 3 lados"},{label:"VESA",value:"100x100mm"},{label:"Conectividad",value:"HDMI x2 + VGA"},{label:"Anti-fatiga",value:"Flicker-Free + Low Blue Light"}],
           pros: ["Precio bajo $80.000 para segunda pantalla","HDMI x2 para consola + PC simultáneo","VESA 100x100 para brazo de monitor"],
           cons: ["Solo tilt, sin altura ajustable","VGA incluido (conector legacy)","Sin DisplayPort"],
-          stores: [{name:"PCFactory",price:"$79.990",url:"#",best:true,tag:"Mejor precio"},{name:"MercadoLibre",price:"$84.990",url:"#",best:false,tag:null},{name:"Solotodo",price:"$82.990",url:"#",best:false,tag:null}],
+          stores: [{name:"PCFactory",price:"$79.990",url:"#",best:true,tag:"Mejor precio"},{name:"MercadoLibre",price:"$84.990",url:"#",best:false,tag:null}],
           scores: {"Bisel Fino":82,"Calidad Color":70,"Montaje VESA":95,"Resolución":62,"Conectividad":72,"Tamaño Ideal":85,"Precio/Valor":96},
         },
         balanced: {
